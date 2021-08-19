@@ -17,7 +17,7 @@ const EditUserInfo = () => {
   let thisToken = localStorage.getItem("token");
   
   useEffect(() => {
-    axios.get(`http://localhost:5000/user/id`,    {
+    axios.get(`${process.env.REACT_APP_BACKEND_SERVER}user/id`,    {
       headers: {
         authorization: "Bearer " + thisToken,
       },
@@ -39,7 +39,7 @@ const EditUserInfo = () => {
   const modifyInfo = () => {
     axios
       .put(
-        `http://localhost:5000/user/editUser`,
+        `${process.env.REACT_APP_BACKEND_SERVER}user/editUser`,
 
         {
           firstName,

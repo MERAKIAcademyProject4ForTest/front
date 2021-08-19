@@ -17,7 +17,7 @@ const Profile = () => {
   let thisToken = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/user/id/`, {
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}user/id/`, {
         headers: {
           authorization: "Bearer " + thisToken,
         },
@@ -31,7 +31,7 @@ const Profile = () => {
       });
 
     axios
-      .get(`http://localhost:5000/order`, {
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}order`, {
         headers: {
           authorization: "Bearer " + thisToken,
         },

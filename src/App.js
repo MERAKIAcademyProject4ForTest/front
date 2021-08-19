@@ -20,8 +20,8 @@ import Searched from "./components/Searched";
 import Profile from "./components/Profile";
 import EditUserInfo from "./components/edituserinfo";
 import Payment from "./components/Payment";
-
 import "./App.css";
+require("dotenv").config();
 
 const App = () => {
   const [token, setToken] = useState("");

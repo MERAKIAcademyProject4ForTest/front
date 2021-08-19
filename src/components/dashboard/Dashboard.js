@@ -15,7 +15,7 @@ export default function Dashboard() {
 
   const addProduct = () => {
     axios
-      .post("http://localhost:5000/products", {
+      .post(`${process.env.REACT_APP_BACKEND_SERVER}products`, {
         type,
         name,
         price,

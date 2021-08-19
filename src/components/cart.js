@@ -15,7 +15,7 @@ export default function Cart({ token }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/cart", {
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}cart`, {
         headers: {
           Authorization: "Bearer " + thisToken,
         },
@@ -65,7 +65,7 @@ export default function Cart({ token }) {
               onClick={() => {
                 axios
                   .put(
-                    "http://localhost:5000/cart",
+                    `${process.env.REACT_APP_BACKEND_SERVER}cart`,
                     {
                       productId: element.props._id,
                     },

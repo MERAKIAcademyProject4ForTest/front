@@ -10,7 +10,7 @@ export default function Searched() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/products/name/${name}`)
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}products/name/${name}`)
       .then((res) => {
         setResult(res.data);
       })

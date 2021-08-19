@@ -34,7 +34,7 @@ catch(err){
   const addComment = () => {
     axios
       .post(
-        `http://localhost:5000/products/${id}/comments`,
+        `${process.env.REACT_APP_BACKEND_SERVER}products/${id}/comments`,
         {
           comment,
         },
@@ -56,7 +56,7 @@ catch(err){
   };
 
   const deleteComment =(commentId)=>{
-    axios.delete(`http://localhost:5000/products/${id}/comments/${commentId}`
+    axios.delete(`${process.env.REACT_APP_BACKEND_SERVER}products/${id}/comments/${commentId}`
     ).then((result) => {
       setInfo(Math.random());
     })
@@ -69,7 +69,7 @@ catch(err){
   const addFavorite = () => {
     axios
       .post(
-        `http://localhost:5000/favorites`,
+        `${process.env.REACT_APP_BACKEND_SERVER}favorites`,
         {
           productId: result._id,
         },
@@ -89,7 +89,7 @@ catch(err){
   const deleteFav = () => {
     axios
       .put(
-        "http://localhost:5000/favorites",
+        `${process.env.REACT_APP_BACKEND_SERVER}favorites`,
 
         {
           productId: idProduct,
@@ -111,7 +111,7 @@ catch(err){
   const addCart = () => {
     axios
       .post(
-        `http://localhost:5000/cart`,
+        `${process.env.REACT_APP_BACKEND_SERVER}cart`,
         {
           productId: result._id,
         },
@@ -132,7 +132,7 @@ catch(err){
   useEffect(() => {
     getUserId()
     axios
-      .get(`http://localhost:5000/products/id/${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}products/id/${id}`)
       .then((response) => {
         setResult(response.data);
       })
@@ -140,7 +140,7 @@ catch(err){
         console.log(err);
       });
     axios
-      .get(`http://localhost:5000/favorites/${id}`, {
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}favorites/${id}`, {
         headers: {
           Authorization: "Bearer " + thisToken,
         },
@@ -158,7 +158,7 @@ catch(err){
         console.log(err);
       });
     axios
-      .get(`http://localhost:5000/rating/products/${id}`, {
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}rating/products/${id}`, {
         headers: {
           Authorization: "Bearer " + thisToken,
         },

@@ -11,7 +11,7 @@ export default function Login({ setToken, setRole }) {
 
   const chick = () => {
     axios
-      .post("http://localhost:5000/login", { email, password })
+      .post(`${process.env.REACT_APP_BACKEND_SERVER}login`, { email, password })
       .then((result) => {
         if (result.status === 200) {
           setToken(result.data.token);

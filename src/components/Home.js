@@ -23,7 +23,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/slider")
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}slider`)
       .then((result) => {
         setslideImages(result.data.picsAddress);
       })

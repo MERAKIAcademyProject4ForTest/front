@@ -18,7 +18,7 @@ export default function Register() {
   const [error, setError] = useState(false);
   const rigister = () => {
     axios
-      .post("http://localhost:5000/user/createUser", {
+      .post(`${process.env.REACT_APP_BACKEND_SERVER}user/createUser`, {
         firstName,
         lastName,
         age,

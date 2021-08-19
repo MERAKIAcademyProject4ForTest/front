@@ -23,7 +23,7 @@ export default function Payment() {
       .replaceAll(" ", "-");
     axios
       .post(
-        "http://localhost:5000/order",
+        `${process.env.REACT_APP_BACKEND_SERVER}order`,
         {
           date,
           products: newArr,

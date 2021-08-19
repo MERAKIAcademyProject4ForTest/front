@@ -10,7 +10,7 @@ export default function Category({ token }) {
   const history = useHistory();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/products/type/${type}`)
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}products/type/${type}`)
       .then((result) => {
         setResult(result.data);
       })
@@ -41,7 +41,7 @@ export default function Category({ token }) {
 
   const searchFilter = (price) => {
     axios
-      .get(`http://localhost:5000/products/filter/${type}/${price}`)
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}products/filter/${type}/${price}`)
       .then((result) => {
         setResult(result.data);
       })

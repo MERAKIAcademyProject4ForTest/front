@@ -20,7 +20,7 @@ export default function Rating({ idProduct, thisToken, setInfo }) {
                   setRating(ratingValue);
                   axios
                     .post(
-                      `http://localhost:5000/rating/products/${idProduct}`,
+                      `${process.env.REACT_APP_BACKEND_SERVER}rating/products/${idProduct}`,
                       {
                         rating: ratingValue,
                       },

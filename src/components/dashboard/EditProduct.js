@@ -14,7 +14,7 @@ const thisToken = localStorage.getItem("token");
 const history = useHistory();
 
 const findId = ()=>{
-   axios.get(`http://localhost:5000/products/id/${idValue}`)
+   axios.get(`${process.env.REACT_APP_BACKEND_SERVER}products/id/${idValue}`)
     .then((result)=>{
         console.log(result);
         setDescription(result.data.description)
@@ -31,7 +31,7 @@ console.log(thisToken);
 const edit = ()=>{
     axios
     .put(
-      `http://localhost:5000/products/id/${idValue}`,
+      `${process.env.REACT_APP_BACKEND_SERVER}products/id/${idValue}`,
   
       {
         description:description ,
@@ -57,7 +57,7 @@ const edit = ()=>{
   }
 
   const deletBtn = ()=>{
-      axios.delete(`http://localhost:5000/products/id/${idValue}`)
+      axios.delete(`${process.env.REACT_APP_BACKEND_SERVER}products/id/${idValue}`)
       .then((result)=>{
         history.push("/dashboard")
       }).catch((err)=>{

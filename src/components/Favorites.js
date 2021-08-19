@@ -15,7 +15,7 @@ export default function Favorites({ token }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/favorites", {
+      .get(`${process.env.REACT_APP_BACKEND_SERVER}favorites`, {
         headers: {
           Authorization: "Bearer " + thisToken,
         },
@@ -58,7 +58,7 @@ export default function Favorites({ token }) {
               console.log(idProduct);
               axios
                 .put(
-                  "http://localhost:5000/favorites",
+                  `${process.env.REACT_APP_BACKEND_SERVER}favorites`,
 
                   {
                     productId: idProduct,
